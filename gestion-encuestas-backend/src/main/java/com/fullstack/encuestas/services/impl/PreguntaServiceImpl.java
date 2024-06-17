@@ -5,6 +5,7 @@ import com.fullstack.encuestas.entities.Pregunta;
 import com.fullstack.encuestas.entities.Respuesta;
 import com.fullstack.encuestas.repositories.EncuestaRepository;
 import com.fullstack.encuestas.repositories.PreguntaRepository;
+import com.fullstack.encuestas.repositories.RespuestaRepository;
 import com.fullstack.encuestas.services.PreguntaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -44,6 +45,7 @@ public class PreguntaServiceImpl implements PreguntaService {
             Pregunta preguntaAntigua = preguntaRepository.findById(id).orElse(null);
             pregunta.setId(id);
             pregunta.setEncuesta(preguntaAntigua.getEncuesta());
+            pregunta.setRespuestas(preguntaRepository.findById(id).get().getRespuestas());
             return preguntaRepository.save(pregunta);
         }
         return null;

@@ -31,12 +31,6 @@ public class RespuestaController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    @PostMapping
-    public ResponseEntity<Respuesta> crearRespuesta(@RequestBody Respuesta respuesta){
-        Respuesta respuestaCreated = respuestaService.createRespuesta(respuesta);
-        return ResponseEntity.status(HttpStatus.CREATED).body(respuestaCreated);
-    }
-
     @PutMapping("/{id}")
     public ResponseEntity<Respuesta> actualizarRespuesta(@PathVariable Long id, @RequestBody Respuesta respuesta){
         return ResponseEntity.ok().body(respuestaService.updateRespuesta(id, respuesta));
@@ -54,7 +48,7 @@ public class RespuestaController {
         return ResponseEntity.ok().body(respuestas);
     }
 
-    @PostMapping("/{id}/agregar")
+    @PostMapping("/{id}")
     public ResponseEntity<Respuesta> agregarRespuestaAPregunta(@PathVariable Long id, @RequestBody Respuesta respuesta){
         return ResponseEntity.status(HttpStatus.CREATED).body(respuestaService.agregarRespuestaAPregunta(id, respuesta));
     }

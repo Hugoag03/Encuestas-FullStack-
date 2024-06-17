@@ -1,0 +1,12 @@
+<div class="container">
+    <form class="form" (ngSubmit)="onSaveTarea()">
+        <div class="form-group">
+        <h2>{{encuesta.id ? 'Editar' : 'Crear'}} encuesta</h2>
+            <label for="titulo">Introduce el título</label>
+            <input class="form-control" type="text" id="text" name="text" [(ngModel)]="encuesta.titulo" required>
+         
+            <button type="submit" class="btn btn-primary">{{encuesta.id ? 'Actualizar' : 'Guardar'}}</button>
+           
+        </div>
+    </form>
+</div>

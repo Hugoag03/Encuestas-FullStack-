@@ -1,0 +1,12 @@
+<div class="container mt-3">
+    <form class="form" (ngSubmit)="onSavePregunta()">
+        <div class="form-group">
+        <h2>{{pregunta.id ? 'Editar' : 'Crear'}} pregunta</h2>
+            <label for="pregunta">Introduce el contenido</label>
+            <input class="form-control" type="text" id="pregunta" name="pregunta" [(ngModel)]="pregunta.contenido" required="">
+         
+            <button type="submit" class="btn btn-primary">{{pregunta.id ? 'Actualizar' : 'Guardar'}}</button>
+           
+        </div>
+    </form>
+</div>

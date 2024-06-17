@@ -37,6 +37,7 @@ public class EncuestaServiceImpl implements EncuestaService {
     public Encuesta updateEncuesta(Long id, Encuesta encuesta) {
         if (encuestaRepository.existsById(id)){
             encuesta.setId(id);
+            encuesta.setPreguntas(encuestaRepository.findById(id).get().getPreguntas());
             return encuestaRepository.save(encuesta);
         }
         return null;

@@ -1,0 +1,23 @@
+<div class="container mt-5">
+  <h1>Listado de respuestas</h1>
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th>ID</th>
+        <th>Contenido</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let respuesta of respuestas">
+        <td>{{respuesta.id}}</td>
+        <td>{{respuesta.contenido}}</td>
+        <td>
+          <button type="submit" class="btn btn-sm btn-info" [routerLink]="['/pregunta', preguntaId, 'respuestas', respuesta.id, 'edit']">Editar</button>
+          <button type="submit" class="btn btn-sm btn-danger" (click)="eliminarRespuesta(respuesta.id!)">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <a class="btn btn-primary" [routerLink]="['/pregunta', preguntaId, 'respuestas', 'new']">Crear respuesta</a>
+</div>

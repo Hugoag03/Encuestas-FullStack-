@@ -1,0 +1,27 @@
+
+<div class="container mt-3">
+    <h1>Listado de encuestas</h1>
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th>ID</th>
+        <th>Título</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody class="tbody">
+      <tr *ngFor="let encuesta of encuestas">
+        <td>{{ encuesta.id }}</td>
+        <td>{{ encuesta.titulo }}</td>
+        <td>
+            <button type="submit" class="btn btn-sm btn-info" routerLink="/encuestas/{{encuesta.id}}/edit">Editar</button>
+            &nbsp;
+            <button type="submit" class="btn btn-sm btn-danger" (click)="eliminarEncuesta(encuesta.id!)">Eliminar</button> 
+            &nbsp;
+            <button type="submit" class="btn btn-sm btn-success" routerLink="/encuestas/{{encuesta.id}}/preguntas">Preguntas</button>     
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <a href="/encuestas/new" class="btn btn-primary">Crear encuesta</a>
+</div>

@@ -1,0 +1,10 @@
+<div class="container mt-3">
+    <h2>{{respuesta.id ? 'Editar' : 'Crear'}} respuesta</h2>
+    <form (ngSubmit)="onSaveRespuesta()">
+        <div class="form-group">
+            <label for="contenido">Contenido:</label>
+            <input type="text" class="form-control" id="contenido" name="contenido" [(ngModel)]="respuesta.contenido" required>
+        </div>
+        <button type="submit" class="btn btn-sm btn-primary">{{respuesta.id ? 'Actualizar' : 'Guardar'}}</button>
+    </form>
+</div>

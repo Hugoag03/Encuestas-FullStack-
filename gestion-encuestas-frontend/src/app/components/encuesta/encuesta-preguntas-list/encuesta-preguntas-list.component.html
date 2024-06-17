@@ -1,0 +1,27 @@
+
+<div class="container mt-3">
+    <h1>Listado de preguntas de la encuesta con el ID: {{encuestaId}}</h1>
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th>ID</th>
+        <th>Título</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody class="tbody">
+      <tr *ngFor="let pregunta of preguntas">
+        <td>{{ pregunta.id }}</td>
+        <td>{{ pregunta.contenido }}</td>
+        <td>
+            <button type="submit" class="btn btn-sm btn-info" routerLink="/encuestas/{{encuestaId}}/preguntas/{{pregunta.id}}/edit">Editar</button>
+            &nbsp;
+            <button type="submit" class="btn btn-sm btn-danger" (click)="eliminarPregunta(pregunta.id!)">Eliminar</button> 
+            &nbsp;
+            <button type="submit" class="btn btn-sm btn-success" routerLink="/pregunta/{{pregunta.id}}/respuestas">Respuestas</button>     
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <a class="btn btn-sm btn-success" href="encuestas/{{encuestaId}}/preguntas/new">Nueva Pregunta</a>    
+</div>

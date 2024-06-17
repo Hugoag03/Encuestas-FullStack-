@@ -32,11 +32,6 @@ public class PreguntaController {
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-    @PostMapping
-    public ResponseEntity<Pregunta> crearPregunta(@RequestBody Pregunta pregunta){
-        Pregunta preguntaCreated = preguntaService.createPregunta(pregunta);
-        return ResponseEntity.status(HttpStatus.CREATED).body(preguntaCreated);
-    }
 
     @PutMapping("/{id}")
     public ResponseEntity<Pregunta> actualizarPregunta(@PathVariable Long id, @RequestBody Pregunta pregunta){
@@ -55,7 +50,7 @@ public class PreguntaController {
         return ResponseEntity.ok().body(preguntas);
     }
 
-    @PostMapping("/{id}/agregar")
+    @PostMapping("/{id}")
     public ResponseEntity<Pregunta> agregarPreguntaAEncuesta(@PathVariable Long id, @RequestBody Pregunta pregunta){
         return ResponseEntity.status(HttpStatus.CREATED).body(preguntaService.agregarPreguntaAEncuesta(id, pregunta));
     }
